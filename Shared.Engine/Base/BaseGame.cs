@@ -8,7 +8,7 @@ namespace Shared.Engine.Base
     public abstract class BaseGame
     {
         // Target solution for the game
-        public abstract Vector2 _v2IntialResolution { get;  }
+        public abstract Vector2 _IntialResoltion { get;  }
         // target the solution for the game
         protected BaseGame()
         {
@@ -18,7 +18,7 @@ namespace Shared.Engine.Base
         // Initializes the game
         public virtual void Init()
         {
-            Renderer.Instance.Init(_v2IntialResolution);
+            Renderer.Instance.Init(_IntialResoltion);
         }
 
         // Draws our objects // this is internal to this class only in case there are issues Drawing objects
