@@ -41,6 +41,9 @@
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseAppDelegate.cs" />
+    <Compile Include="GameView.cs" />
+    <Compile Include="GLViewController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="..\Shared.Engine\Shared.Engine.projitems" Label="Shared" />
