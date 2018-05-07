@@ -15,5 +15,11 @@ namespace Game.Shared.Base
         {
 
         }
+
+        //Initialize and start offset with zero
+        protected override Vector2 CalculateExtraOffset(float heightDiffernce)
+        {
+            return new Vector2(0, 0);
+        }
     }
 }

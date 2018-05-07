@@ -5,10 +5,12 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using OpenTK;
 using Shared.Engine.Base;
 
 namespace Engine.Android
@@ -33,7 +35,10 @@ namespace Engine.Android
         {
             base.OnCreate(savedInstanceState);
             _view = new CustomGLView(this, _gameInstance);
-            _gameInstance.Init();
+            //Helps to receive the info on the size of screen
+            Point point = new Point();
+            WindowManager.DefaultDisplay.GetRealSize(point);
+            _gameInstance.Init(new Vector2(point.X, point.Y));
             //Decorate view to view full screen
             Window.DecorView.SystemUiVisibility |= (StatusBarVisibility)(Int32)
             (SystemUiFlags.HideNavigation

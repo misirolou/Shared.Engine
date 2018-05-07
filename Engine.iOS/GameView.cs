@@ -37,6 +37,7 @@ namespace Engine.iOS
         public GameView(CGRect frame) : base(frame)
         {
             LayerColorFormat = EAGLColorFormat.RGBA8;
+            ContentScaleFactor = UIScreen.MainScreen.Scale;
         }
 
         protected override void CreateFrameBuffer()

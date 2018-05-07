@@ -1,5 +1,7 @@
 ﻿using Foundation;
+using OpenTK;
 using Shared.Engine.Base;
+using System;
 using UIKit;
 
 namespace Engine.iOS
@@ -26,7 +28,8 @@ namespace Engine.iOS
 
             // If you have defined a root view controller, set it here:
             // Window.RootViewController = myViewController;
-            GameInstance.Init();
+            // Initialize screen size according to what was is to be calculated
+            GameInstance.Init(new Vector2((Single)UIScreen.MainScreen.Bounds.Width, (Single)UIScreen.MainScreen.Bounds.Height) * (Single)UIScreen.MainScreen.Scale);
             GLViewController controller = new GLViewController(GameInstance);
             Window.RootViewController = controller;
 
