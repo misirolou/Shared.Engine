@@ -3,6 +3,8 @@ using OpenTK.Graphics.ES30;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
+using Shared.Engine.Graphics;
 
 namespace Shared.Engine.Base
 {
@@ -23,6 +25,9 @@ namespace Shared.Engine.Base
 
         //Dimensions of Target Display
         public Vector2 TargetDimensions => _v2TargetDimension;
+
+        // Canvas that contains all the drawables to be drawn
+        private readonly List<Canvas> _Canvases = new List<Canvas>();
 
         // Scale of the Dimensions
         public Vector2 ScreenScale { get; private set; }
@@ -51,6 +56,22 @@ namespace Shared.Engine.Base
             GL.ClearColor(0f, 0.4f, 0f, 0f);
             GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
 
+            foreach (Canvas canvas in _Canvases.ToList())
+            {
+                canvas.Draw();
+            }
+        }
+
+        // Adds canvas to list of canvases
+        internal void AddCanvas(Canvas canvasToAdd)
+        {
+            _Canvases.Add(canvasToAdd);
+        }
+
+        //Removes canvas from the list of canvases
+        internal void RemoveCanvas(Canvas removeCanvas)
+        {
+            _Canvases.Remove(removeCanvas);
         }
 
     }
